@@ -7,7 +7,7 @@
 //初始化左侧
 function InitLeftMenu() {
 
-    $(".easyui-accordion").empty();
+    /*$(".easyui-accordion").empty();
     var menulist = "";
    
     $.each(_menus.menus, function(i, n) {
@@ -19,7 +19,7 @@ function InitLeftMenu() {
         menulist += '</ul></div>';
     })
 
-	$(".easyui-accordion").append(menulist);
+	$(".easyui-accordion").append(menulist);*/
 	
 	$('.easyui-accordion li a').click(function(){
 		var tabTitle = $(this).text();

@@ -43,7 +43,7 @@ public class Testquestion implements java.io.Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, optional = false)
 	@JoinColumn(name = "type",referencedColumnName = "id")
 	public TestquestionType getTestquestionType() {
 		return testquestionType;
@@ -51,7 +51,7 @@ public class Testquestion implements java.io.Serializable{
 	public void setTestquestionType(TestquestionType testquestionType) {
 		this.testquestionType = testquestionType;
 	}
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, optional = false)
 	@JoinColumn(name = "post",referencedColumnName = "id")
 	public Post getPost() {
 		return post;

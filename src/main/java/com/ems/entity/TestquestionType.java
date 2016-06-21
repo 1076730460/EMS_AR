@@ -84,8 +84,8 @@ public class TestquestionType implements java.io.Serializable{
 		this.update_time = update_time;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "testquestionType")
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "testquestionType")
+	//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	public Set<Testquestion> getTestQuestions() {
 		return testQuestions;
 	}

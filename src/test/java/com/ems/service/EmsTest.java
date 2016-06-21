@@ -1,6 +1,7 @@
 package com.ems.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.log4j.Logger;
@@ -43,13 +44,13 @@ public class EmsTest {
 	@Test
 	public void save(){
 		User user = new User();
-		user.setUserName("zhangsan");
+		user.setUserName("gjp");
 		user.setPassword("123456");
 		user.setName("张三");
 		user.setDeptName("研发部");
 		user.setTitle("软件开发工程师");
 		user.setCellPhone("15988234526");
-		user.setMailAddress("143527527@qq.com");
+		user.setMailAddress("153526527@qq.com");
 		String id = userService.save(user);
 		LOGGER.info(JSON.toJSONString(id));
 	}
@@ -58,6 +59,13 @@ public class EmsTest {
 		User user= userService.getUser("zhangsan");
 		user.toString();
 	}
+	@Test
+	public void getPost(){
+		Post post = postService.get("5d530f59-3b4b-4b0b-8046-5919fcf87544");
+		System.out.println(post.toString());
+		
+	}
+	
 	@Test
 	public void savePostAndType(){
 		Post post = new Post();
@@ -86,10 +94,11 @@ public class EmsTest {
 		questionService.save(tq1);*/
 		
 	}
-	
+	@Test
 	public void saveTestquestion(){
-		Post post = postService.load("24a3e2678404");
-		TestquestionType type = typeService.load("80ffb8430107");
+		Post post = postService.load("5d530f59-3b4b-4b0b-8046-5919fcf87544");
+		TestquestionType type = typeService.load("e9ddf3d7-1e5f-4fee-98b7-9ec5ca8f160c");
+		
 		Testquestion tq1 = new Testquestion();
 		tq1.setId(UUID.randomUUID().toString());
 		tq1.setName("方法的定义和常量值的集合是( )");
@@ -99,6 +108,22 @@ public class EmsTest {
 		tq1.setTestquestionType(type);
 		tq1.setCreate_person("张三");
 		tq1.setCreate_time(new Date());
-		questionService.save(tq1);
+		String id = questionService.save(tq1);
+		LOGGER.info(JSON.toJSONString(id));
+	}
+	@Test
+	public void getSearchQuestion(){
+		String post = "";
+		String type = "e9ddf3d7-1e5f-4fee-98b7-9ec5ca8f160c";
+		List<Testquestion> result = questionService.getSearchQuestion(post, type);
+		for(int i=0;i<result.size();i++){
+			Testquestion question = result.get(i);
+			System.out.println(question.toString());
+		}
+	}
+	@Test
+	public void deletQuestion(){
+		String id = "73ff3419-f4c7-454d-97cb-7fdc0139b5bd";
+		questionService.delete(id);
 	}
 }

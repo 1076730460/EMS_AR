@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ems.dao.TestquestionDAO;
+import com.ems.entity.Post;
 import com.ems.entity.Testquestion;
+import com.ems.entity.TestquestionType;
 import com.ems.service.TestquestionService;
 @Service("testquestionService")
 public class TestquestionServiceImpl implements TestquestionService{
@@ -50,6 +52,11 @@ public class TestquestionServiceImpl implements TestquestionService{
 	public void flush() {
 		// TODO Auto-generated method stub
 		testQuestionDAO.flush();
+	}
+
+	public List<Testquestion> getSearchQuestion(String postId,String typeId) {
+		// TODO Auto-generated method stub
+		return testQuestionDAO.getSearchQuestion(postId, typeId);
 	}
 
 }

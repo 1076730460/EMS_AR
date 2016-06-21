@@ -10,11 +10,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/assets/css/reset.css">
+	href="<%=request.getContextPath()%>/resources/login/css/reset.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/assets/css/supersized.css">
+	href="<%=request.getContextPath()%>/resources/login/css/supersized.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/assets/css/style.css">
+	href="<%=request.getContextPath()%>/resources/login/css/style.css">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -38,13 +38,13 @@
 	</div>
 	<!-- Javascript -->
 	<script
-		src="<%=request.getContextPath()%>/resources/assets/js/jquery-1.8.2.min.js"></script>
+		src="<%=request.getContextPath()%>/resources/login/js/jquery-1.8.2.min.js"></script>
 	<script
-		src="<%=request.getContextPath()%>/resources/assets/js/supersized.3.2.7.min.js"></script>
+		src="<%=request.getContextPath()%>/resources/login/js/supersized.3.2.7.min.js"></script>
 	<script
-		src="<%=request.getContextPath()%>/resources/assets/js/supersized-init.js"></script>
+		src="<%=request.getContextPath()%>/resources/login/js/supersized-init.js"></script>
 	<script
-		src="<%=request.getContextPath()%>/resources/assets/js/scripts.js"></script>
+		src="<%=request.getContextPath()%>/resources/login/js/scripts.js"></script>
 		<script
 		src="<%=request.getContextPath()%>/resources/js/login.js"></script>
 

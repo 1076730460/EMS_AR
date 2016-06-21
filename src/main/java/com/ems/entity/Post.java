@@ -68,8 +68,7 @@ public class Post implements java.io.Serializable{
 	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
 	}
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "post")
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "post")
 	public Set<Testquestion> getTestQuestion() {
 		return testQuestion;
 	}
