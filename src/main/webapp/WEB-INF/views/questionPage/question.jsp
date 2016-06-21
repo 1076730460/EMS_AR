@@ -90,6 +90,7 @@
 			<tbody>
 				<c:forEach items="${questionList }" var="question">
 					<tr>
+						<input id="questionId" type="hidden" value="${question.id }">
 						<td class="center"><label class="position-relative">
 								<input type="checkbox" class="ace" /> <span class="lbl"></span>
 						</label></td>
@@ -100,12 +101,10 @@
 						<td>${question.rightOption }</td>
 						<td>${question.create_person }</td>
 						<td>${question.create_time }</td>
-						<td><a class="blue" title="查看编辑" href="#"
-							onclick="#" data-toggle="modal">查看编辑 <i
-								class="ace-icon fa fa-eye bigger-150"></i>
-						</a> <a class="red" title="删除" href="#" onclick="deltQuestion('${question.id}')">删除 <i
-								class="ace-icon fa fa-trash-o bigger-150"></i>
-						</a></td>
+						<td><a class="btn btn-primary" title="修改"
+							 data-toggle="modal" data-target="#updateQuestion" id="updates">修改</a> 
+						<button type="button" class="btn btn-primary" id="deltQuestion" >删除</button>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -178,6 +177,40 @@
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 					</button>
 					<button type="button" class="btn btn-primary" id="questionSub">提交</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+	
+	<!-- 修改model -->
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="updateQuestion" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="text-align: center;">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">题目详情</h4>
+				</div>
+				<div class="modal-body">
+					<!-- modal start -->
+					<div class="step-pane active">
+						<div class="step-pane active">
+							<div class="center" id="center_update">
+								
+							</div>
+						</div>
+					</div>
+					<!-- model end -->
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="up_questionSub">提交</button>
 				</div>
 			</div>
 			<!-- /.modal-content -->

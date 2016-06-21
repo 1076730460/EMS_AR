@@ -90,6 +90,9 @@ public final class question_002dlist_jsp extends org.apache.jasper.runtime.HttpJ
         do {
           out.write("\r\n");
           out.write("\t<tr>\r\n");
+          out.write("\t\t<input id=\"questionId\" type=\"hidden\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\">\r\n");
           out.write("\t\t<td class=\"center\"><label class=\"position-relative\"> <input\r\n");
           out.write("\t\t\t\ttype=\"checkbox\" class=\"ace\" /> <span class=\"lbl\"></span>\r\n");
           out.write("\t\t</label></td>\r\n");
@@ -114,14 +117,10 @@ public final class question_002dlist_jsp extends org.apache.jasper.runtime.HttpJ
           out.write("\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.create_time }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</td>\r\n");
-          out.write("\t\t<td><a class=\"blue\" title=\"查看编辑\" href=\"#\" onclick=\"#\"\r\n");
-          out.write("\t\t\tdata-toggle=\"modal\">查看编辑 <i class=\"ace-icon fa fa-eye bigger-150\"></i>\r\n");
-          out.write("\t\t</a> <a class=\"red\" title=\"删除\" href=\"#\"\r\n");
-          out.write("\t\t\tonclick=\"deltQuestion('");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("')\">删除 <i\r\n");
-          out.write("\t\t\t\tclass=\"ace-icon fa fa-trash-o bigger-150\"></i>\r\n");
-          out.write("\t\t</a></td>\r\n");
+          out.write("\t\t<td><a class=\"btn btn-primary\" title=\"修改\" data-toggle=\"modal\"\r\n");
+          out.write("\t\t\tdata-target=\"#updateQuestion\" id=\"updates\">修改</a>\r\n");
+          out.write("\t\t\t<button type=\"button\" class=\"btn btn-primary\" id=\"deltQuestion\">删除</button>\r\n");
+          out.write("\t\t</td>\r\n");
           out.write("\t</tr>\r\n");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

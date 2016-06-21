@@ -126,4 +126,10 @@ public class EmsTest {
 		String id = "73ff3419-f4c7-454d-97cb-7fdc0139b5bd";
 		questionService.delete(id);
 	}
+	@Test
+	public void getQuestion(){
+		String id = "b8cd845f-44f6-44bb-9f5c-467cff24b9bb";
+		Testquestion question = questionService.get(id);
+		System.out.println("--------------->"+question.toString());
+	}
 }

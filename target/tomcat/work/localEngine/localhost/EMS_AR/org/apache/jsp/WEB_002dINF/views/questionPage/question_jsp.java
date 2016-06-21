@@ -238,6 +238,40 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t</div>\r\n");
       out.write("\t\t<!-- /.modal -->\r\n");
       out.write("\t</div>\r\n");
+      out.write("\t\r\n");
+      out.write("\t<!-- 修改model -->\r\n");
+      out.write("\t<!-- 模态框（Modal） -->\r\n");
+      out.write("\t<div class=\"modal fade\" id=\"updateQuestion\" tabindex=\"-1\" role=\"dialog\"\r\n");
+      out.write("\t\taria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n");
+      out.write("\t\t<div class=\"modal-dialog\">\r\n");
+      out.write("\t\t\t<div class=\"modal-content\">\r\n");
+      out.write("\t\t\t\t<div class=\"modal-header\" style=\"text-align: center;\">\r\n");
+      out.write("\t\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\"\r\n");
+      out.write("\t\t\t\t\t\taria-hidden=\"true\">&times;</button>\r\n");
+      out.write("\t\t\t\t\t<h4 class=\"modal-title\" id=\"myModalLabel\">题目详情</h4>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<div class=\"modal-body\">\r\n");
+      out.write("\t\t\t\t\t<!-- modal start -->\r\n");
+      out.write("\t\t\t\t\t<div class=\"step-pane active\">\r\n");
+      out.write("\t\t\t\t\t\t<div class=\"step-pane active\">\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"center\" id=\"center_update\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t<!-- model end -->\r\n");
+      out.write("\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<div class=\"modal-footer\">\r\n");
+      out.write("\t\t\t\t\t<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭\r\n");
+      out.write("\t\t\t\t\t</button>\r\n");
+      out.write("\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" id=\"up_questionSub\">提交</button>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t\t<!-- /.modal-content -->\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t\t<!-- /.modal -->\r\n");
+      out.write("\t</div>\r\n");
       out.write("\t<script\r\n");
       out.write("\t\tsrc=\"");
       out.print(request.getContextPath());
@@ -367,6 +401,9 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write("\r\n");
           out.write("\t\t\t\t\t<tr>\r\n");
+          out.write("\t\t\t\t\t\t<input id=\"questionId\" type=\"hidden\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\">\r\n");
           out.write("\t\t\t\t\t\t<td class=\"center\"><label class=\"position-relative\">\r\n");
           out.write("\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"ace\" /> <span class=\"lbl\"></span>\r\n");
           out.write("\t\t\t\t\t\t</label></td>\r\n");
@@ -391,14 +428,10 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\t\t\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.create_time }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</td>\r\n");
-          out.write("\t\t\t\t\t\t<td><a class=\"blue\" title=\"查看编辑\" href=\"#\"\r\n");
-          out.write("\t\t\t\t\t\t\tonclick=\"#\" data-toggle=\"modal\">查看编辑 <i\r\n");
-          out.write("\t\t\t\t\t\t\t\tclass=\"ace-icon fa fa-eye bigger-150\"></i>\r\n");
-          out.write("\t\t\t\t\t\t</a> <a class=\"red\" title=\"删除\" href=\"#\" onclick=\"deltQuestion('");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("')\">删除 <i\r\n");
-          out.write("\t\t\t\t\t\t\t\tclass=\"ace-icon fa fa-trash-o bigger-150\"></i>\r\n");
-          out.write("\t\t\t\t\t\t</a></td>\r\n");
+          out.write("\t\t\t\t\t\t<td><a class=\"btn btn-primary\" title=\"修改\"\r\n");
+          out.write("\t\t\t\t\t\t\t data-toggle=\"modal\" data-target=\"#updateQuestion\" id=\"updates\">修改</a> \r\n");
+          out.write("\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" id=\"deltQuestion\">删除</button>\r\n");
+          out.write("\t\t\t\t\t\t</td>\r\n");
           out.write("\t\t\t\t\t</tr>\r\n");
           out.write("\t\t\t\t");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f2.doAfterBody();
@@ -428,9 +461,9 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f3 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f3.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f3.setParent(null);
-    // /WEB-INF/views/questionPage/question.jsp(154,12) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f3.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/questionPage/question.jsp(154,12) '${posts }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${posts }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/views/questionPage/question.jsp(154,12) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/questionPage/question.jsp(153,12) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f3.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/questionPage/question.jsp(153,12) '${posts }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${posts }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/questionPage/question.jsp(153,12) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f3.setVar("post");
     int[] _jspx_push_body_count_c_005fforEach_005f3 = new int[] { 0 };
     try {
@@ -472,9 +505,9 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f4 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f4.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f4.setParent(null);
-    // /WEB-INF/views/questionPage/question.jsp(163,12) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f4.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/questionPage/question.jsp(163,12) '${typeList }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${typeList }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/views/questionPage/question.jsp(163,12) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/questionPage/question.jsp(162,12) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f4.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/questionPage/question.jsp(162,12) '${typeList }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${typeList }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/questionPage/question.jsp(162,12) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f4.setVar("type");
     int[] _jspx_push_body_count_c_005fforEach_005f4 = new int[] { 0 };
     try {

@@ -73,6 +73,31 @@ public class TestquestionController {
 		
 		return result;
 	}
+	
+	@RequestMapping(value = "/update")
+	@ResponseBody
+	public ModelAndView updateQuestion(HttpServletRequest request,@RequestBody Map<String,Object> params){
+		ModelAndView mv = new ModelAndView();
+		String id = params.get("id").toString();
+		try {
+			Testquestion question = testQuestionService.get(id);
+			System.out.println("---------------->"+question.toString());
+			List<Post> posts = postService.findAll();
+			List<TestquestionType> typeList = typeService.findAll();
+			mv.setViewName("/fragment/questionUpdate");
+			mv.addObject("posts", posts);
+			mv.addObject("typeList", typeList);	
+			mv.addObject("question", question);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}
+		
+		return mv;
+	}
+	
 
 	/**
 	 * create time 2016.6.21
@@ -110,6 +135,38 @@ public class TestquestionController {
 			// TODO: handle exception
 			e.printStackTrace();
 			result.put("message", "添加失败");
+		}
+		return result;
+	}
+	/**
+	 * @author gjp
+	 * update question
+	 */
+	@RequestMapping(value = "/updateOrSave")
+	@ResponseBody
+	public Map<String, Object> updateOrSaveQuestion(HttpServletRequest request,
+			@RequestBody Map<String, Object> params) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {	
+			String postId = params.get("post").toString();
+			String typeId = params.get("questionType").toString();
+			Post post = postService.get(postId);
+			System.out.println(post.toString());
+			TestquestionType type = typeService.get(typeId);
+			Testquestion question = new Testquestion();
+			question.setName(params.get("questionName").toString());
+			question.setOptions(params.get("questionName").toString());
+			question.setRightOption(params.get("questionName").toString());
+			question.setPost(post);
+			question.setTestquestionType(type);
+			question.setCreate_person("zhangsan");
+			question.setCreate_time(new Date());
+			testQuestionService.saveOrUpdate(question);
+			result.put("success", true);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			result.put("message", "修改失败");
 		}
 		return result;
 	}

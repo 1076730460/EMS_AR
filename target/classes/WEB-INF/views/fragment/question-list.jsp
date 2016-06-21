@@ -4,6 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:forEach items="${questionList }" var="question">
 	<tr>
+		<input id="questionId" type="hidden" value="${question.id }">
 		<td class="center"><label class="position-relative"> <input
 				type="checkbox" class="ace" /> <span class="lbl"></span>
 		</label></td>
@@ -14,11 +15,9 @@
 		<td>${question.rightOption }</td>
 		<td>${question.create_person }</td>
 		<td>${question.create_time }</td>
-		<td><a class="blue" title="查看编辑" href="#" onclick="#"
-			data-toggle="modal">查看编辑 <i class="ace-icon fa fa-eye bigger-150"></i>
-		</a> <a class="red" title="删除" href="#"
-			onclick="deltQuestion('${question.id}')">删除 <i
-				class="ace-icon fa fa-trash-o bigger-150"></i>
-		</a></td>
+		<td><a class="btn btn-primary" title="修改" data-toggle="modal"
+			data-target="#updateQuestion" id="updates">修改</a>
+			<button type="button" class="btn btn-primary" id="deltQuestion">删除</button>
+		</td>
 	</tr>
 </c:forEach>
