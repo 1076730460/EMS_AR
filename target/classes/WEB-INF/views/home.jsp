@@ -165,6 +165,21 @@
 					</li>
 				</ul>
 			</div>
+			<!-- 试卷动态管理 -->
+			<div title="试卷管理" style="overflow: auto;" icon="icon-sys">
+				<ul>
+					<li>
+						<c:forEach items="${posts}" var="post">
+							<div>
+								<a target="mainFrame" href="parperPage/parper.html?post=${post.name }"> <span class="icon icon-nav"></span>${post.name}试卷
+								</a>
+							</div>
+						</c:forEach>
+					</li>
+				</ul>
+			</div>
+			
+			
 		</div>
 
 	</div>

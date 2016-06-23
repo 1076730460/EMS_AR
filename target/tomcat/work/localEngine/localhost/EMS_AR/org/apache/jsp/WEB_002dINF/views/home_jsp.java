@@ -237,6 +237,19 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t</li>\r\n");
       out.write("\t\t\t\t</ul>\r\n");
       out.write("\t\t\t</div>\r\n");
+      out.write("\t\t\t<!-- 试卷动态管理 -->\r\n");
+      out.write("\t\t\t<div title=\"试卷管理\" style=\"overflow: auto;\" icon=\"icon-sys\">\r\n");
+      out.write("\t\t\t\t<ul>\r\n");
+      out.write("\t\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t\t");
+      if (_jspx_meth_c_005fforEach_005f2(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t</ul>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\r\n");
       out.write("\t</div>\r\n");
@@ -388,6 +401,52 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_c_005fforEach_005f1.doFinally();
       _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f1);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fforEach_005f2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_005fforEach_005f2.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fforEach_005f2.setParent(null);
+    // /WEB-INF/views/home.jsp(172,6) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f2.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/home.jsp(172,6) '${posts}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${posts}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/home.jsp(172,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f2.setVar("post");
+    int[] _jspx_push_body_count_c_005fforEach_005f2 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_005fforEach_005f2 = _jspx_th_c_005fforEach_005f2.doStartTag();
+      if (_jspx_eval_c_005fforEach_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("\t\t\t\t\t\t\t<div>\r\n");
+          out.write("\t\t\t\t\t\t\t\t<a target=\"mainFrame\" href=\"parperPage/parper.html?post=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${post.name }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\"> <span class=\"icon icon-nav\"></span>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${post.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("试卷\r\n");
+          out.write("\t\t\t\t\t\t\t\t</a>\r\n");
+          out.write("\t\t\t\t\t\t\t</div>\r\n");
+          out.write("\t\t\t\t\t\t");
+          int evalDoAfterBody = _jspx_th_c_005fforEach_005f2.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_005fforEach_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_005fforEach_005f2[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_005fforEach_005f2.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_005fforEach_005f2.doFinally();
+      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f2);
     }
     return false;
   }

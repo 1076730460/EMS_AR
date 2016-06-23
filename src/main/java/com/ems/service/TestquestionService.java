@@ -24,4 +24,6 @@ public interface TestquestionService {
 	void flush();
 	
 	public List<Testquestion> getSearchQuestion(String postId,String typeId);
+	
+	public void update(Testquestion entity);
 }

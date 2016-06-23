@@ -116,13 +116,13 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t<label class=\"col-sm-1 control-label\" for=\"form-field-select-1\">\r\n");
       out.write("\t\t\t\t题目数</label>\r\n");
       out.write("\t\t\t<div class=\"col-sm-1 no-padding-left\">\r\n");
-      out.write("\t\t\t\t<input type=\"text\" class=\"form-control\">\r\n");
+      out.write("\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"qustionNum\">\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\r\n");
       out.write("\t\t\t<label class=\"col-sm-1 control-label\" for=\"zujuan\">\r\n");
       out.write("\t\t\t</label>\r\n");
       out.write("\t\t\t<div class=\"col-sm-1\">\r\n");
-      out.write("\t\t\t\t<button class=\"btn btn-primary btn-sm\"  id=\"zujuan\">组卷</button>\r\n");
+      out.write("\t\t\t\t<button class=\"btn btn-primary btn-sm\"  id=\"organization\">组卷</button>\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t</form>\r\n");
       out.write("\t\t<label class=\"col-sm-1 control-label\" for=\"form-field-select-3\">\r\n");
@@ -149,7 +149,7 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t<th>选项</th>\r\n");
       out.write("\t\t\t\t\t<th>正确项</th>\r\n");
       out.write("\t\t\t\t\t<th>创建人</th>\r\n");
-      out.write("\t\t\t\t\t<th>创时间</th>\r\n");
+      out.write("\t\t\t\t\t<!-- <th>创时间</th> -->\r\n");
       out.write("\t\t\t\t\t<th>操作</th>\r\n");
       out.write("\t\t\t\t</tr>\r\n");
       out.write("\t\t\t</thead>\r\n");
@@ -400,10 +400,10 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_005fforEach_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("\t\t\t\t\t<tr>\r\n");
-          out.write("\t\t\t\t\t\t<input id=\"questionId\" type=\"hidden\" value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\t\t\t\t\t<input id=\"questionNum\" type=\"hidden\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${num }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("\">\r\n");
+          out.write("\t\t\t\t\t<tr>\r\n");
           out.write("\t\t\t\t\t\t<td class=\"center\"><label class=\"position-relative\">\r\n");
           out.write("\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"ace\" /> <span class=\"lbl\"></span>\r\n");
           out.write("\t\t\t\t\t\t</label></td>\r\n");
@@ -425,12 +425,15 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\t\t\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.create_person }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</td>\r\n");
-          out.write("\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.create_time }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</td>\r\n");
+          out.write("\t\t\t\t\t\t");
+          out.write("\r\n");
           out.write("\t\t\t\t\t\t<td><a class=\"btn btn-primary\" title=\"修改\"\r\n");
-          out.write("\t\t\t\t\t\t\t data-toggle=\"modal\" data-target=\"#updateQuestion\" id=\"updates\">修改</a> \r\n");
-          out.write("\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" id=\"deltQuestion\">删除</button>\r\n");
+          out.write("\t\t\t\t\t\t\t data-toggle=\"modal\" data-target=\"#updateQuestion\" id=\"updates\" onclick=\"updateQuestion('");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("')\">修改</a> \r\n");
+          out.write("\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" id=\"deltQuestion\" onclick=\"deletQuestion('");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("')\">删除</button>\r\n");
           out.write("\t\t\t\t\t\t</td>\r\n");
           out.write("\t\t\t\t\t</tr>\r\n");
           out.write("\t\t\t\t");

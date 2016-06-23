@@ -59,4 +59,9 @@ public class TestquestionServiceImpl implements TestquestionService{
 		return testQuestionDAO.getSearchQuestion(postId, typeId);
 	}
 
+	public void update(Testquestion entity) {
+		// TODO Auto-generated method stub
+		testQuestionDAO.update(entity);
+	}
+
 }

@@ -1,6 +1,8 @@
 package com.ems.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -28,6 +32,8 @@ public class Testquestion implements java.io.Serializable{
 	private Date create_time;
 	private String update_person;
 	private Date update_time;
+	private String lib;
+	private Set<TestParper> parpers = new HashSet<TestParper>();
 	@Id
 	@Column(name = "id", unique = true, nullable = false, length = 36)
 	public String getId() {
@@ -101,6 +107,20 @@ public class Testquestion implements java.io.Serializable{
 		this.update_time = update_time;
 	}
 	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "ems_parper_question", catalog = "ems", joinColumns = { @JoinColumn(name = "questionId", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "parperId", nullable = false, updatable = false) })
+	public Set<TestParper> getParpers() {
+		return parpers;
+	}
+	public void setParpers(Set<TestParper> parpers) {
+		this.parpers = parpers;
+	}
+	public String getLib() {
+		return lib;
+	}
+	public void setLib(String lib) {
+		this.lib = lib;
+	}
 	@Override
 	public String toString() {
 		return "Testquestion [id=" + id + ", name=" + name

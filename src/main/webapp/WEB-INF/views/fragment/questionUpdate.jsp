@@ -8,7 +8,7 @@
 			class=" form-control" placeholder="题目">${question.name }</textarea>
 	</div>
 	<div class="row">
-		<textarea rows="4" id="up_questionOptions" name="questionOption"
+		<textarea rows="4" id="up_questionOptions" name="up_questionOptions"
 			class="form-control" placeholder="选项">${question.options }</textarea>
 	</div>
 	<div class="row">

@@ -87,5 +87,9 @@ public class TestquestionDAOImpl implements TestquestionDAO{
 		List<Testquestion> questionList = query.setCacheable(true).list();	
 		return questionList;
 	}
+	public void update(Testquestion entity) {
+		// TODO Auto-generated method stub
+		this.getCurrentSession().update(entity);
+	}
 
 }

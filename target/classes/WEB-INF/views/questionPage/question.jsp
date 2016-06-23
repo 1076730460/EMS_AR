@@ -50,13 +50,13 @@
 			<label class="col-sm-1 control-label" for="form-field-select-1">
 				题目数</label>
 			<div class="col-sm-1 no-padding-left">
-				<input type="text" class="form-control">
+				<input type="text" class="form-control" id="qustionNum">
 			</div>
 
 			<label class="col-sm-1 control-label" for="zujuan">
 			</label>
 			<div class="col-sm-1">
-				<button class="btn btn-primary btn-sm"  id="zujuan">组卷</button>
+				<button class="btn btn-primary btn-sm"  id="organization">组卷</button>
 			</div>
 		</form>
 		<label class="col-sm-1 control-label" for="form-field-select-3">
@@ -83,14 +83,14 @@
 					<th>选项</th>
 					<th>正确项</th>
 					<th>创建人</th>
-					<th>创时间</th>
+					<!-- <th>创时间</th> -->
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${questionList }" var="question">
+					<input id="questionNum" type="hidden" value="${num }">
 					<tr>
-						<input id="questionId" type="hidden" value="${question.id }">
 						<td class="center"><label class="position-relative">
 								<input type="checkbox" class="ace" /> <span class="lbl"></span>
 						</label></td>
@@ -100,10 +100,10 @@
 						<td>${question.options }</td>
 						<td>${question.rightOption }</td>
 						<td>${question.create_person }</td>
-						<td>${question.create_time }</td>
+						<%-- <td>${question.create_time }</td> --%>
 						<td><a class="btn btn-primary" title="修改"
-							 data-toggle="modal" data-target="#updateQuestion" id="updates">修改</a> 
-						<button type="button" class="btn btn-primary" id="deltQuestion">删除</button>
+							 data-toggle="modal" data-target="#updateQuestion" id="updates" onclick="updateQuestion('${question.id}')">修改</a> 
+						<button type="button" class="btn btn-primary" id="deltQuestion" onclick="deletQuestion('${question.id}')">删除</button>
 						</td>
 					</tr>
 				</c:forEach>

@@ -42,6 +42,7 @@ public class SearchDataController {
 		}
 		mv.setViewName("/fragment/question-list");
 		mv.addObject("questionList", questionList);
+		mv.addObject("num", questionList.size());
 		return mv;
 	}
 }

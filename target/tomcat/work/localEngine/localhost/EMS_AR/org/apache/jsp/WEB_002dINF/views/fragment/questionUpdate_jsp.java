@@ -74,7 +74,7 @@ public final class questionUpdate_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("</textarea>\r\n");
       out.write("\t</div>\r\n");
       out.write("\t<div class=\"row\">\r\n");
-      out.write("\t\t<textarea rows=\"4\" id=\"up_questionOptions\" name=\"questionOption\"\r\n");
+      out.write("\t\t<textarea rows=\"4\" id=\"up_questionOptions\" name=\"up_questionOptions\"\r\n");
       out.write("\t\t\tclass=\"form-control\" placeholder=\"选项\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.options }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("</textarea>\r\n");
