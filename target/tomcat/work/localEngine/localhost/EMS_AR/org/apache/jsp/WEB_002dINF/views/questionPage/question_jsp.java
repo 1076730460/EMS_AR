@@ -141,7 +141,7 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t<thead>\r\n");
       out.write("\t\t\t\t<tr>\r\n");
       out.write("\t\t\t\t\t<th class=\"center\"><label class=\"position-relative\"> <input\r\n");
-      out.write("\t\t\t\t\t\t\ttype=\"checkbox\" class=\"ace\" /> <span class=\"lbl\"></span>\r\n");
+      out.write("\t\t\t\t\t\t\ttype=\"checkbox\" class=\"ace\" id=\"allSelect\" onclick=\"artifical()\"/> <span class=\"lbl\"></span>\r\n");
       out.write("\t\t\t\t\t</label></th>\r\n");
       out.write("\t\t\t\t\t<th>题目名称</th>\r\n");
       out.write("\t\t\t\t\t<th>岗位</th>\r\n");
@@ -405,7 +405,9 @@ public final class question_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\">\r\n");
           out.write("\t\t\t\t\t<tr>\r\n");
           out.write("\t\t\t\t\t\t<td class=\"center\"><label class=\"position-relative\">\r\n");
-          out.write("\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"ace\" /> <span class=\"lbl\"></span>\r\n");
+          out.write("\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"ace\"  value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.id }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\"/> <span class=\"lbl\"></span>\r\n");
           out.write("\t\t\t\t\t\t</label></td>\r\n");
           out.write("\t\t\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${question.name }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));

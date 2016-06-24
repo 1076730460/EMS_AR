@@ -1,7 +1,56 @@
 $(document).ready(function() {
 	addQuestion();
 	organizationParper();
+	// artifical();
 });
+// 人工组卷
+function artifical() {
+	var chk = document.getElementById('allSelect');
+	var questionIdList = new Array();
+	var flag=0;
+	if(chk.checked){
+		// 全选
+		$("#dataSourceTable tbody input[type='checkbox']").each(function(){
+			 this.checked=true
+		})
+		//反选	
+	}else{
+		$("#dataSourceTable tbody input[type='checkbox']").each(function(){
+			 this.checked=false
+		})
+	}
+	//获取所有选种的value
+	$("#dataSourceTable tbody input[type='checkbox']").each(function(){
+		 questionIdList[flag]=this.value;
+		 flag++;
+	})
+	for(var i=0;i<questionIdList.length;i++){
+		
+		console.log(questionIdList[i]);
+	}
+	
+	//ajax提交
+	
+	$.ajax({
+		type : "POST",
+		url : "testQuestPage/artficalParper",
+		async : false,
+		data : JSON.stringify({
+			"questionIdList" : questionIdList
+		}),
+		dataType : "json",
+		contentType : "application/json",
+		success : function(data) {
+			if (data.success) {
+				alert(data.Msg);
+				onSelectChange();
+			} else {
+				alert(data.errorMsg);
+			}
+		}
+	});
+}
+
 // 搜索局部刷新表
 function onSelectChange() {
 	var postSelect = $("#postSelect").val();
@@ -36,7 +85,7 @@ function pageTurn(pagePerNumber, pageNum) {
 	refreshPagination(searchmap);
 }
 
-//自动组卷
+// 自动组卷
 function organizationParper() {
 	$("#organization").click(function() {
 		var questionNum = $("#qustionNum").val();
@@ -49,7 +98,7 @@ function organizationParper() {
 			if(postSelect!="" &&　typeSelect!=""){
 				var curentNum = $("#questionNum").val();
 				if(questionNum<=curentNum){
-					//ajax发送数据
+					// ajax发送数据
 					$.ajax({
 						type : "POST",
 						url : "testQuestPage/automaticParper",

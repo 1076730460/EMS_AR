@@ -75,7 +75,7 @@
 			<thead>
 				<tr>
 					<th class="center"><label class="position-relative"> <input
-							type="checkbox" class="ace" /> <span class="lbl"></span>
+							type="checkbox" class="ace" id="allSelect" onclick="artifical()"/> <span class="lbl"></span>
 					</label></th>
 					<th>题目名称</th>
 					<th>岗位</th>
@@ -92,7 +92,7 @@
 					<input id="questionNum" type="hidden" value="${num }">
 					<tr>
 						<td class="center"><label class="position-relative">
-								<input type="checkbox" class="ace" /> <span class="lbl"></span>
+								<input type="checkbox" class="ace"  value="${question.id }"/> <span class="lbl"></span>
 						</label></td>
 						<td>${question.name }</td>
 						<td>${question.post.name }</td>

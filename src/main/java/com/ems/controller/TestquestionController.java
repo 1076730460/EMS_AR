@@ -218,4 +218,20 @@ public class TestquestionController {
 
 		return result;
 	}
+	/**
+	 * create time 2016.6.23
+	 * @param request
+	 * @param params(questionId数组)
+	 * @return
+	 */
+	@RequestMapping(value = "/artficalParper")
+	@ResponseBody
+	public Map<String,Object> artficalParper(HttpServletRequest request,
+			@RequestBody Map<String, Object> params){
+		Map<String, Object> result = new HashMap<String, Object>();
+		List<String> questionIdList =(List) params.get("questionIdList");
+		System.out.println("------------>"+questionIdList.size());
+		
+		return result;
+	}
 }
